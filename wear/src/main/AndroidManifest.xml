@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bari_ikutsu.wearableeval1" >
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.DeviceDefault" >
+        <activity
+            android:name=".MyActivity"
+            android:label="HelloWatch" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- タクシーを呼ぶ -->
+            <intent-filter>
+                <action android:name="com.google.android.gms.actions.RESERVE_TAXI_RESERVATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- メモ -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.google.android.voicesearch.SELF_NOTE" />
+                <data android:mimeType="text/*" />
+            </intent-filter>
+
+            <!-- アラーム設定 -->
+            <intent-filter>
+                <action android:name="android.intent.action.SET_ALARM" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- タイマー設定 -->
+            <intent-filter>
+                <action android:name="android.intent.action.SET_TIMER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 自転車 -->
+            <intent-filter>
+                <action android:name="vnd.google.fitness.TRACK" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.google.fitness.activity/biking" />
+            </intent-filter>
+
+            <!-- ランニング -->
+            <intent-filter>
+                <action android:name="vnd.google.fitness.TRACK" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.google.fitness.activity/running" />
+            </intent-filter>
+
+            <!-- 運動 -->
+            <intent-filter>
+                <action android:name="vnd.google.fitness.TRACK" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.google.fitness.activity/other" />
+            </intent-filter>
+
+            <!-- 心拍計 -->
+            <intent-filter>
+                <action android:name="vnd.google.fitness.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.google.fitness.data_type/com.google.heart_rate.bpm" />
+            </intent-filter>
+
+            <!-- 歩数計 -->
+            <intent-filter>
+                <action android:name="vnd.google.fitness.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.google.fitness.data_type/com.google.step_count.cumulative" />
+            </intent-filter>
+
+        </activity>
+    </application>
+
+</manifest>
